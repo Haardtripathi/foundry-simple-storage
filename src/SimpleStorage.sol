@@ -9,7 +9,7 @@ contract SimpleStorage {
     }
 
     // State variable to store a number
-    uint256 private storedNumber;
+    uint256 public storedNumber;
 
     // Array to store a list of people
     Person[] public people;
@@ -37,7 +37,9 @@ contract SimpleStorage {
     }
 
     // Function to get a person by index from the people array
-    function getPerson(uint256 _index) public view returns (string memory, uint256) {
+    function getPerson(
+        uint256 _index
+    ) public view returns (string memory, uint256) {
         require(_index < people.length, "Index out of bounds");
         Person memory person = people[_index];
         return (person.name, person.favoriteNumber);
